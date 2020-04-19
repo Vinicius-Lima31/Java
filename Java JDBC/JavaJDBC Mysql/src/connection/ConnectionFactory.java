@@ -23,7 +23,8 @@ public class ConnectionFactory
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
             
-        } catch (ClassNotFoundException | SQLException ex) // Fluxo de Exceção
+        } 
+        catch (ClassNotFoundException | SQLException ex) // Fluxo de Exceção
         {
             // Vamos lançar uma exceção aqui
             // Ira mostrar o Erro
@@ -40,7 +41,8 @@ public class ConnectionFactory
             try 
             {
                 con.close(); // Fechando a Conexão
-            } catch (SQLException ex) // Caso esteja nulo, ira para o fluxo de exceção
+            } 
+            catch (SQLException ex) // Caso esteja nulo, ira para o fluxo de exceção
             {
                 System.err.println("Erro: "+ex); // "err" é para aparecer em vermelho
             }
@@ -55,7 +57,8 @@ public class ConnectionFactory
             try 
             {
                 stmt.close(); // Fechando o Statement
-            } catch (SQLException ex) 
+            } 
+            catch (SQLException ex) 
             {
                  System.err.println("Erro: "+ex); // "err" é para aparecer em vermelho
             }
@@ -71,7 +74,8 @@ public class ConnectionFactory
             try 
             {
                 rs.close(); // Fechando o Statement
-            } catch (SQLException ex) 
+            } 
+            catch (SQLException ex) 
             {
                  System.err.println("Erro: "+ex); // "err" é para aparecer em vermelho
             }
