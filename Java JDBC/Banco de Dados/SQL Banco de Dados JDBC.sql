@@ -26,3 +26,14 @@ CREATE TABLE Produto
 
 select * from categoria;
 select * from produto;
+
+# Mostrando a Relação
+# Usaremos essa Linha no NetBeans para Acessar!
+select p.id as pid, p.descricao as pdesc, qtd, valor, categoria_id, c.id as cid, c.descricao as cdes from produto p inner join categoria c  on c.id = p.categoria_id;
+
+# Usando um View
+# Vamos em View -> Create View... -> 
+# CREATE VIEW `vw_produtocategoria` AS select p.id as pid, p.descricao as pdesc, qtd, valor, categoria_id, c.id as cid, c.descricao as cdes from produto p inner join categoria c  on c.id = p.categoria_id; <--- Aqui dentro jogo todo SQL que eu quero nomear.
+
+# Tou chamando essa Consulta de cima, que esta dentro dessa View
+select * from vw_produtocategoria;
