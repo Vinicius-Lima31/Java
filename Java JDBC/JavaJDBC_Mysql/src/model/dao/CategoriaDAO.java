@@ -18,11 +18,11 @@ public class CategoriaDAO
 
     public CategoriaDAO() // Criar um Constructor
     {
-        con = ConnectionFactory.getConnection(); //passando Conexão para con
+        con = ConnectionFactory.getConnection(); //passando ConexÃ£o para con
     }
 
     
-    // Metódo Inserir
+    // MetÃ³do Inserir
     public boolean save(Categoria categoria) 
     {
         String sql = "INSERT INTO categoria (descricao) VALUES (?)";
@@ -30,9 +30,9 @@ public class CategoriaDAO
 
         try 
         {
-            stmt = con.prepareStatement(sql);
+            stmt = con.prepareStatement(sql); // Passamo o comando SQL
             stmt.setString(1, categoria.getDescricao());
-            stmt.executeUpdate(); // esse porque é responsavel por delete etc..
+            stmt.executeUpdate(); // esse porque Ã© responsavel por delete etc..
             return true;
         } 
         catch (SQLException ex) 
@@ -40,7 +40,7 @@ public class CategoriaDAO
             System.err.println("Erro: " + ex);
             return false;
         }
-        finally // fechando Conexão, o finnally passa sempre, mesmo quando passa por try ou catch
+        finally // fechando ConexÃ£o, o finnally passa sempre, mesmo quando passa por try ou catch
         {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -56,10 +56,10 @@ public class CategoriaDAO
         try 
         {
             stmt = con.prepareStatement(sql);
-            // Acredito eu! Que esses números passados abaixo no "set" seja ordem!
+            // Acredito eu! Que esses nÃºmeros passados abaixo no "set" seja ordem!
             stmt.setString(1, categoria.getDescricao()); // Passamos a "Descricao"
             stmt.setInt(2, categoria.getId()); // Passamos o "ID"
-            stmt.executeUpdate(); // esse porque é responsavel por delete etc..
+            stmt.executeUpdate(); // esse porque Ã© responsavel por delete etc..
             return true;
         } 
         catch (SQLException ex) 
@@ -67,7 +67,7 @@ public class CategoriaDAO
             System.err.println("Erro: " + ex);
             return false;
         }
-        finally // fechando Conexão, o finnally passa sempre, mesmo quando passa por try ou catch
+        finally // fechando ConexÃ£o, o finnally passa sempre, mesmo quando passa por try ou catch
         {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -82,10 +82,10 @@ public class CategoriaDAO
 
         try 
         {
-            stmt = con.prepareStatement(sql);
-            // Acredito eu! Que esses números passados abaixo no "set" seja ordem!
+            stmt = con.prepareStatement(sql); // Passamo o comando SQL
+            // Acredito eu! Que esses nÃºmeros passados abaixo no "set" seja ordem!
             stmt.setInt(1, categoria.getId()); // Passamos o "ID"
-            stmt.executeUpdate(); // esse porque é responsavel por delete etc..
+            stmt.executeUpdate(); // esse porque Ã© responsavel por delete etc..
             return true;
         } 
         catch (SQLException ex) 
@@ -93,7 +93,7 @@ public class CategoriaDAO
             System.err.println("Erro: " + ex);
             return false;
         }
-        finally // fechando Conexão, o finnally passa sempre, mesmo quando passa por try ou catch
+        finally // fechando ConexÃ£o, o finnally passa sempre, mesmo quando passa por try ou catch
         {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -114,8 +114,8 @@ public class CategoriaDAO
         // Precisa os cara dentro do banco e colocarr nessa "list" aqui
         try 
         {
-            stnt = con.prepareStatement(sql);
-            // Na documentação o "executeQuery" retorna um resultSet
+            stnt = con.prepareStatement(sql); // Passamo o comando SQL  
+            // Na documentaÃ§Ã£o o "executeQuery" retorna um resultSet
             rs = stnt.executeQuery();
             
             // um While para percorrer
@@ -126,17 +126,17 @@ public class CategoriaDAO
                 
                 Categoria categoria = new Categoria();
                 
-                categoria.setDescricao(rs.getString("descricao")); // Uma String porque no banco de Dados isso é uma String
+                categoria.setDescricao(rs.getString("descricao")); // Uma String porque no banco de Dados isso Ã© uma String
                 categorias.add(categoria); // adcionando para a arrayList
                 
                 
             }
         } 
-        catch (SQLException ex) // Se der erro, essa aqui é a Exceção
+        catch (SQLException ex) // Se der erro, essa aqui Ã© a ExceÃ§Ã£o
         {
             System.err.println("Erro " + ex);
         }
-        finally //Agora vamos fechar a nossa conexão e etc.
+        finally //Agora vamos fechar a nossa conexÃ£o e etc.
         {
             ConnectionFactory.closeConnection(con, stnt, rs);
         }

@@ -17,10 +17,10 @@ public class CategoriaDAOTest
     }
     
     @Test // <--- Preciso ter isso aquui
-    @Ignore // <--- Feito para Ignorar e não executar
+    @Ignore // <--- Feito para Ignorar e nÃ£o executar
     public void inserir() 
     {
-        Categoria cat = new Categoria("Roupas"); // Tabela categoria do meu banco dados, tera isso incluido
+        Categoria cat = new Categoria("Comida"); // Tabela categoria do meu banco dados, tera isso incluido
         CategoriaDAO dao = new CategoriaDAO();  // Incluir no banco de dados
         
         // dao.save(cat); <-- Estou acrescentando "Roupas" no meu banco de Dados!
@@ -36,7 +36,7 @@ public class CategoriaDAOTest
     }
     
     @Test
-    @Ignore // <--- Feito para Ignorar e não executar
+    @Ignore // <--- Feito para Ignorar e nÃ£o executar
     public void atualizar() 
     {
         Categoria cat = new Categoria("Roupa"); // Tirei um "s" de Roupas, ficando igual a "Roupa"
@@ -46,7 +46,7 @@ public class CategoriaDAOTest
         // dao.save(cat); <-- Estou acrescentando "Roupas" no meu banco de Dados!
         if(dao.update(cat)) 
         {
-            System.out.println("Atualização realizada com sucesso!");
+            System.out.println("AtualizaÃ§Ã£o realizada com sucesso!");
         }
         else
         {
@@ -57,7 +57,7 @@ public class CategoriaDAOTest
     
     // Vamos criar um metodo para Deletar
     @Test
-    @Ignore // <--- Feito para Ignorar e não executar
+    @Ignore // <--- Feito para Ignorar e nÃ£o executar
     public void deletar()
     {
         Categoria cat = new Categoria();
@@ -78,18 +78,18 @@ public class CategoriaDAOTest
     
     // Vamos criar um metodo para listar
     @Test
-    @Ignore // <--- Feito para Ignorar e não executar
+    @Ignore // <--- Feito para Ignorar e nÃ£o executar
     public void listar()
     {
         CategoriaDAO dao = new CategoriaDAO();
         
         for(Categoria c: dao.findAll()) // Percorrer 
         {
-            System.out.println("Descrição: " + c.getDescricao());
+            System.out.println("DescriÃ§Ã£o: " + c.getDescricao());
         }
         // Ira imprimir aqui o que tem no Banco de Dados
         // Exemplo:
-        //      Descrição: Roupas
+        //      DescriÃ§Ã£o: Roupas
     }
     
 }
