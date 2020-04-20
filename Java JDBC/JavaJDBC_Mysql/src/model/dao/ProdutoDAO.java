@@ -12,17 +12,17 @@ import model.bean.Produto;
 
 public class ProdutoDAO 
 {
-    private Connection con = null; // Criando ConexÃ£o
+    private Connection con = null; // Criando Conexão
 
     public ProdutoDAO() 
     {
-        // Abrindo ja a ConexÃ£o
+        // Abrindo ja a Conexão
         con = ConnectionFactory.getConnection();
     }
     
     public boolean save(Produto produto) 
     {
-        String sql = "INSERT INTO produto (descricao, qtd, valor, categoria_id) VALUES (?,?,?,?)"; // <-- "?" SÃ£o quantas coisas iremos passar!
+        String sql = "INSERT INTO produto (descricao, qtd, valor, categoria_id) VALUES (?,?,?,?)"; // <-- "?" São quantas coisas iremos passar!
         PreparedStatement stmt = null;
 
         try 
@@ -31,9 +31,9 @@ public class ProdutoDAO
             stmt.setString(1, produto.getDescricao());
             stmt.setInt(2, produto.getQtd());
             stmt.setDouble(3, produto.getQtd());
-            // Abaixo, ele estÃ¡ acessando um chave estrangeira, indo de produto.categoria indo atÃ© id da categoria pelo produto
+            // Abaixo, ele estÃ¡ acessando um chave estrangeira, indo de produto.categoria indo até id da categoria pelo produto
             stmt.setInt(4, produto.getCategoria().getId()); // Minuto 6:30 explica melhor
-            stmt.executeUpdate(); // esse porque Ã© responsavel por delete etc..
+            stmt.executeUpdate(); // esse porque são responsavel por delete etc..
             return true;
         } 
         catch (SQLException ex) 
@@ -52,7 +52,7 @@ public class ProdutoDAO
     {
         //String sql = "select p.id as pid, p.descricao as pdesc, qtd, valor, categoria_id, c.id as cid, c.descricao as cdes from produto p inner join categoria c  on c.id = p.categoria_id"; // <-- Nossa Consulta SQL
         // E possivel melhorar esse codigo aqui em cima, fica bem feio dessa largura.
-        String sql = "select * from vw_produtocategoria"; // <-- usei essa View, que Ã© a mesma coisa do de cima!
+        String sql = "select * from vw_produtocategoria"; // <-- usei essa View, que é a mesma coisa do de cima!
         
         PreparedStatement stnt = null;
         ResultSet rs = null;

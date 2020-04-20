@@ -19,7 +19,7 @@ public class ProdutoDAOTest
     public void inserir() // Inserindo com chave estrangeira
     {
         Categoria categoria = new Categoria();
-        categoria.setId(3); // Esse ID Ã© o ID do Banco de Dados, id da para a Chave Estrangeira
+        categoria.setId(3); // Esse ID é o ID do Banco de Dados, id da para a Chave Estrangeira
         
         Produto produto = new Produto();
         produto.setDescricao("Farinha"); // Adcionando esses Atributos
@@ -58,7 +58,7 @@ public class ProdutoDAOTest
     public void atualizar() // Inserindo com chave estrangeira
     {
         Categoria categoria = new Categoria();
-        categoria.setId(1); // Esse ID Ã© o ID do Banco de Dados
+        categoria.setId(1); // Esse ID é o ID do Banco de Dados
         
         Produto produto = new Produto();
         produto.setDescricao("Farinha"); // Adcionando esses Atributos
@@ -66,7 +66,7 @@ public class ProdutoDAOTest
         produto.setValor(6);          // Adcionando esses Atributos
         produto.setCategoria(categoria); // Preenchendo chave Estrangeira
         
-        produto.setId(3); // <-- esse e quem eu quero alterar
+        produto.setId(3); // <-- esse é quem eu quero alterar
         
         ProdutoDAO dao = new ProdutoDAO();
         
@@ -81,7 +81,7 @@ public class ProdutoDAOTest
     }
     
     @Test
-    @Ignore // <--- Feito para Ignorar e nÃ£o executar
+    @Ignore // <--- Feito para Ignorar e nao executar
     public void deletar()
     {
         Produto prod = new Produto();
