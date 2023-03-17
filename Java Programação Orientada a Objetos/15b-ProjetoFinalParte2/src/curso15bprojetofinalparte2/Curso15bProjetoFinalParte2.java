@@ -20,7 +20,7 @@ public class Curso15bProjetoFinalParte2
         
         vis[1] = new Vizualicao(g[0], v[1]);
         vis[1].avaliar(70f);
-        System.out.println(vis[1].toString());  // Existe uma funnção na Classe "Video" chamada Objeto
+        System.out.println(vis[1].toString());  // Existe uma função na Classe "Video" chamada Objeto
         
     }
 }
